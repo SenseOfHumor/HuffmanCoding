@@ -25,7 +25,7 @@ def huffman_code(st: str) -> dict:
     
     input: st : string to create huffman code for
     output: dict : huffman code for the string
-    dependency : tree.py, frequency_table
+    dependency : tree.py, frequency_table, internal function dfs
     """
     freq = frequency_table(st)
     heap = []
@@ -53,6 +53,24 @@ def huffman_code(st: str) -> dict:
     # print(heap)
 
     ## actual huffman code
+    code = {}
+    path_code = ""
+
+    ## recursive DFS
+    def __dfs(node, path_code):
+        if node is None:
+            return
+        
+        ## base case
+        if node.left is None and node.right is None:
+            code[node.character] = path_code
+            return
+        __dfs(node.left, path_code + "0")
+        __dfs(node.right, path_code + "1")
+
+    __dfs(heap[0], path_code)
+    return code
+
     
 
 ## Tests
