@@ -136,27 +136,38 @@ def Huffman_decode(bst: str, tree: Node) -> str:
     curr = tree
 
     ## traverse
+    # for bit in bst:
+    #     if bit == '0':
+    #         curr = curr.left
+    #         if not curr.left and not curr.right:
+    #             decoded_string += curr.character
+    #             curr = tree
+    #     else:
+    #         curr = curr.right
+    #         if not curr.left and not curr.right:
+    #             decoded_string += curr.character
+    #             curr = tree
+
     for bit in bst:
         if bit == '0':
             curr = curr.left
-            if not curr.left and not curr.right:
-                decoded_string += curr.character
-                curr = tree
         else:
             curr = curr.right
-            if not curr.left and not curr.right:
-                decoded_string += curr.character
-                curr = tree
+
+        ## base case
+        if not curr.left and not curr.right:
+            decoded_string += curr.character
+            curr = tree
     return decoded_string
 
 
 
 ## Tests
 st = "abbcccdddd"
-print(f"Huffman code for {st}: {Huffman_code(st)}")
-print(f"Encoded string for {st}: {Huffman_encode(st, Huffman_code(st))}")
+# print(f"Huffman code for {st}: {Huffman_code(st)}")
+# print(f"Encoded string for {st}: {Huffman_encode(st, Huffman_code(st))}")
 
 tree = Huffman_tree([('a', '000'), ('b', '001'), ('c', '01'), ('d', '1')])
 # print(tree.__traverse__())
 bst = "0000010010010101011111"
-print(f"Decoded string for {bst}: {Huffman_decode(bst, tree)}")
+print(f"Decoded string for \"{bst}\": \"{Huffman_decode(bst, tree)}\"")
