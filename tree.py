@@ -13,5 +13,7 @@ class Node:
     def __lt__(self, other):
         return self.frequency < other.frequency
 
+    def __repr__(self):
+        return f"Node({self.character}, {self.frequency})"
 
         
