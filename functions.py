@@ -163,11 +163,11 @@ def Huffman_decode(bst: str, tree: Node) -> str:
 
 
 ## Tests
-st = "abbcccdddd"
-# print(f"Huffman code for {st}: {Huffman_code(st)}")
-# print(f"Encoded string for {st}: {Huffman_encode(st, Huffman_code(st))}")
+# st = "abbcccdddd"
+# # print(f"Huffman code for {st}: {Huffman_code(st)}")
+# # print(f"Encoded string for {st}: {Huffman_encode(st, Huffman_code(st))}")
 
-tree = Huffman_tree([('a', '000'), ('b', '001'), ('c', '01'), ('d', '1')])
-# print(tree.__traverse__())
-bst = "0000010010010101011111"
-print(f"Decoded string for \"{bst}\": \"{Huffman_decode(bst, tree)}\"")
+# tree = Huffman_tree([('a', '000'), ('b', '001'), ('c', '01'), ('d', '1')])
+# # print(tree.__traverse__())
+# bst = "0000010010010101011111"
+# print(f"Decoded string for \"{bst}\": \"{Huffman_decode(bst, tree)}\"")
