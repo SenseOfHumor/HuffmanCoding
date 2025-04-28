@@ -33,24 +33,30 @@ def huffman_code(st: str) -> dict:
     for char, freq in freq.items():
         heapq.heappush(heap, Node(char, freq))
 
-    # print(heap)
+    print(f"Heap at start: {heap}")
 
     ## build the tree
     while len(heap) > 1:
         left = heapq.heappop(heap)  ## left node
+        print(f"left: {left}")
         right = heapq.heappop(heap) ## right node
-        ## crete the new node
+        print(f"right: {right}")
+        print(f"Heap after pop: {heap}")
 
+        ## crete the new node
         char = ""
         freq = left.frequency + right.frequency
         node = Node(char, freq)
-        heapq.heappush(heap, node) 
+        heapq.heappush(heap, node)
+        print(f"node: {node}")
+        print(f"Heap after push: {heap}")
+        print("-" * 80)
 
         ## connection
         node.left = left
         node.right = right
        
-    # print(heap)
+    # print(f"After building the tree: {heap}")
 
     ## actual huffman code
     code = {}
@@ -65,9 +71,14 @@ def huffman_code(st: str) -> dict:
         if node.left is None and node.right is None:
             code[node.character] = path_code
             return
+        
+        ## recursive case
         __dfs(node.left, path_code + "0")
+        print(f"left: {node.left} path_code: {path_code + '0'}")
         __dfs(node.right, path_code + "1")
+        print(f"right: {node.right} path_code: {path_code + '1'}")
 
+    print(f"heap[0]: {heap[0]}")
     __dfs(heap[0], path_code)
     return code
 
