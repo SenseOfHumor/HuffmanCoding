@@ -8,6 +8,7 @@
 - internal helper function `__dfs` to traverse the nodes in the binary tree.
 - Huffman codes generated can be different at times due to the nature of how heapify does its operations for inserting and deleting, it will not affect the actual encoding or decoding however. Given a string, a proper encoded string is generated, and given a tree and encoded string, a proper decoded string is generated.
 - Project is broken into three files: `tree.py` , `functions.py`, `main.py` with implementation of the binary tree, huffman functions and main functions are separated respectively.
+- File named "assignment6.py" contains single file implementation of Huffman encode and decode, uncomment the "test with user input" part to test with user inputs, works with unicode strings as well.
 
 ### What is Huffman Coding?
 

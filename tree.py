@@ -15,10 +15,3 @@ class Node:
 
     def __repr__(self):
         return f"Node({self.character}, {self.frequency})"
-
-    def __traverse__(self):
-        if self.left is not None:
-            self.left.__traverse__()
-        print(f"Node: {self.character} Frequency: {self.frequency}")
-        if self.right is not None:
-            self.right.__traverse__()    

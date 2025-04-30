@@ -39,5 +39,21 @@ def main():
     decode = Huffman_decode(bst, tree)
     print(f"\ne) Huffman_decode({bst}, {tree})\nDecoded String:\n{decode}")
 
+
+    ## full test, including Unicode
+    print(f"\n-----------------  full test  -----------------")
+    st = "Swapnil is a student @ NJIT and incoming intern @ Prudential Financial for the year 2025, Unicode test: 🦧sd1234!@#$%^&*()_+"
+    print(f"\nOriginal String: {st}")
+    print(f"\nFrequency Table: {frequency_table(st)}")
+    code = Huffman_code(st)
+    print(f"\nHuffman Codes: {code}")
+    encoded_string = Huffman_encode(st, code)
+    print(f"\nEncoded String: {encoded_string}")
+    tree = Huffman_tree(code.items())  ## dict iterable object, so it will work with my Huffman_tree function even tho it is not a list
+    print(f"\nHuffman Tree: {tree}")
+    decoded_string = Huffman_decode(encoded_string, tree)
+    print(f"\nDecoded String: {decoded_string}")
+    print(f"\nDecoded String matches original? {decoded_string == st}")
+
 if __name__ == "__main__":
     main()
